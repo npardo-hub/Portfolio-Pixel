@@ -8,27 +8,8 @@ interface BootSequenceProps {
 }
 
 export function BootSequence({ onComplete, lang }: BootSequenceProps) {
-  const [lines, setLines] = useState<string[]>([]);
-  const [booting, setBooting] = useState(true);
-  const [showPrompt, setShowPrompt] = useState(false);
-  const sourceLines = data[lang].ui.boot;
-
-  useEffect(() => {
-    let currentLine = 0;
-    const interval = setInterval(() => {
-      setLines((prev) => [...prev, sourceLines[currentLine]]);
-      currentLine++;
-      if (currentLine >= sourceLines.length) {
-        clearInterval(interval);
-        setTimeout(() => {
-          setBooting(false);
-          setTimeout(() => setShowPrompt(true), 500);
-        }, 500);
-      }
-    }, 300);
-
-    return () => clearInterval(interval);
-  }, [lang]);
+  const [booting, setBooting] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(true);
 
   return (
     <motion.div
@@ -41,15 +22,6 @@ export function BootSequence({ onComplete, lang }: BootSequenceProps) {
       }}
     >
       <div className="z-20 flex flex-col items-start px-4 w-full max-w-4xl text-left font-mono">
-        {booting && (
-          <div className="text-[var(--color-retro-accent)] text-lg sm:text-xl md:text-2xl mb-8 opacity-80 min-h-[300px]">
-            {lines.map((line, i) => (
-               <div key={i}>{line}</div>
-            ))}
-            <span className="animate-pulse">_</span>
-          </div>
-        )}
-
         <AnimatePresence>
           {!booting && showPrompt && (
             <motion.div
