@@ -73,7 +73,7 @@ export const data = {
       ]
     },
     contact: {
-      content: "Ubicación: Bogotá, Colombia • Remoto\n¿Listo para optimizar tus sistemas?",
+      content: " Ubicación: Bogotá, Colombia • Remoto\n¿Listo para optimizar tus sistemas?",
       email: "npdiaz99@gmail.com",
       whatsapp: "https://wa.me/573057928207",
       instagram: "https://instagram.com/nicolaspardod",
@@ -172,7 +172,7 @@ export const data = {
       ]
     },
     contact: {
-      content: "Location: Bogotá, Colombia • Remote\nReady to optimize your systems?",
+      content: " Location: Bogotá, Colombia • Remote\nReady to optimize your systems?",
       email: "npdiaz99@gmail.com",
       whatsapp: "https://wa.me/573057928207",
       instagram: "https://instagram.com/nicolaspardod",
