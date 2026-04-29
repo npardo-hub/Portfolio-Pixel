@@ -1,7 +1,7 @@
 <h1 align="center">Dual Interface Interactive Portfolio 🎮💼</h1>
 
 <p align="center">
-  <img src="./public/1.png" width="80%" alt="Retro Environment Showcase">
+  <img src="./public/README.png" width="80%" alt="Retro Environment Showcase">
 </p>
 
 [🇪🇸 Leer en Español](#español) | [🇬🇧 Read in English](#english)
