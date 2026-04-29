@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-vt323: 'VT323', monospace;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --color-retro-bg: #1a1c2c;
+  --color-retro-border: #f4f4f4;
+  --color-retro-text: #f4f4f4;
+  --color-retro-primary: #333c57;
+  --color-retro-accent: #38b764;
+}
+
+@layer utilities {
+  .pixel-borders {
+    box-shadow: 
+      -4px 0 0 0 var(--color-retro-border),
+      4px 0 0 0 var(--color-retro-border),
+      0 -4px 0 0 var(--color-retro-border),
+      0 4px 0 0 var(--color-retro-border),
+      -4px -4px 0 0 var(--color-retro-bg),
+      4px -4px 0 0 var(--color-retro-bg),
+      -4px 4px 0 0 var(--color-retro-bg),
+      4px 4px 0 0 var(--color-retro-bg);
+  }
+
+  .pixel-box {
+    background-color: var(--color-retro-bg);
+    border: 4px solid var(--color-retro-border);
+    image-rendering: pixelated;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 12px;
+  }
+  .custom-scroll::-webkit-scrollbar-track {
+    background: var(--color-retro-bg);
+    border-left: 2px solid var(--color-retro-border);
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-retro-primary);
+    border: 2px solid var(--color-retro-border);
+  }
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--color-retro-accent);
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
