@@ -22,10 +22,15 @@ export default function App() {
   useEffect(() => {
     // Only apply retro cursors when in retro mode or during boot
     if (interfaceMode === 'modern') {
+      document.body.classList.remove('overflow-hidden');
+      document.getElementById('root')?.classList.remove('h-screen');
       document.body.style.cursor = '';
       const s = document.getElementById('wow-cursors');
       if (s) s.remove();
       return;
+    } else {
+      document.body.classList.add('overflow-hidden');
+      document.getElementById('root')?.classList.add('h-screen');
     }
 
     document.body.style.cursor = `url('${defaultCursor}') 6 6, default`;
