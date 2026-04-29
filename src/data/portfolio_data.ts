@@ -6,15 +6,6 @@ export const data = {
     ui: {
       sysReq: "SYS.REQ: Interactúa con los puntos de acceso para navegar.",
       status: "ESTADO: Entorno cargado exitosamente.",
-      boot: [
-        "BIOS Data 04/29/26 19:38:29 Ver 1.00",
-        "CPU: Procesador de Red Neuronal 99",
-        "Test de Memoria: 640K OK",
-        "Detectando IDE Primario Maestro... [OK]",
-        "Cargando Kernel del SO........... HECHO",
-        "Inicializando Entorno de Portafolio... HECHO",
-        "Estableciendo Enlace de Comms Seguro... [OK]"
-      ],
       labels: {
         projects: "Proyectos",
         profile: "Sistema",
