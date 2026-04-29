@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const presets = {
   minimal: { name: 'Minimal', primary: '#000000', accent: '#2563eb', bg: '#ffffff', surface: '#f9f9f9', text: '#111111', border: 'rgba(0,0,0,0.12)' },
-  oled: { name: 'OLED', primary: '#ffffff', accent: '#3b82f6', bg: '#000000', surface: '#0a0a0a', text: '#ffffff', border: 'rgba(255,255,255,0.12)' },
-  tokyo: { name: 'Tokyo', primary: '#bb9af7', accent: '#7dcfff', bg: '#1a1b26', surface: '#24283b', text: '#cfc9c2', border: 'rgba(255,255,255,0.1)' },
-  emerald: { name: 'Esmeralda', primary: '#064e3b', accent: '#10b981', bg: '#f0fdf4', surface: '#dcfce7', text: '#064e3b', border: 'rgba(6, 78, 59, 0.12)' },
-  nord: { name: 'Nordic', primary: '#2e3440', accent: '#88c0d0', bg: '#eceff4', surface: '#e5e9f0', text: '#2e3440', border: 'rgba(46, 52, 64, 0.12)' },
-  rose: { name: 'Rose', primary: '#e11d48', accent: '#fb7185', bg: '#fff1f2', surface: '#ffe4e6', text: '#9f1239', border: 'rgba(159, 18, 57, 0.12)' }
+  oled: { name: 'OLED', primary: '#ffffff', accent: '#3b82f6', bg: '#000000', surface: '#0a0a0a', text: '#111111', border: 'rgba(255,255,255,0.12)' },
+  tokyo: { name: 'Tokyo', primary: '#bb9af7', accent: '#7dcfff', bg: '#1a1b26', surface: '#24283b', text: '#111111', border: 'rgba(255,255,255,0.1)' },
+  emerald: { name: 'Esmeralda', primary: '#064e3b', accent: '#10b981', bg: '#f0fdf4', surface: '#dcfce7', text: '#111111', border: 'rgba(6, 78, 59, 0.12)' },
+  nord: { name: 'Nordic', primary: '#2e3440', accent: '#88c0d0', bg: '#eceff4', surface: '#e5e9f0', text: '#111111', border: 'rgba(46, 52, 64, 0.12)' },
+  rose: { name: 'Rose', primary: '#e11d48', accent: '#fb7185', bg: '#fff1f2', surface: '#ffe4e6', text: '#111111', border: 'rgba(159, 18, 57, 0.12)' }
 };
 
 export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
