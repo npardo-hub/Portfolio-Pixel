@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { data, Language } from '../../data/portfolio_data';
 import { ArrowRight, Palette, X } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const presets = {
   minimal: { name: 'Minimal', primary: '#000000', accent: '#2563eb', bg: '#ffffff', surface: '#f9f9f9', text: '#111111', border: 'rgba(0,0,0,0.12)' },
-  oled: { name: 'OLED', primary: '#ffffff', accent: '#3b82f6', bg: '#000000', surface: '#0a0a0a', text: '#111111', border: 'rgba(255,255,255,0.12)' },
-  tokyo: { name: 'Tokyo', primary: '#bb9af7', accent: '#7dcfff', bg: '#1a1b26', surface: '#24283b', text: '#111111', border: 'rgba(255,255,255,0.1)' },
-  emerald: { name: 'Esmeralda', primary: '#064e3b', accent: '#10b981', bg: '#f0fdf4', surface: '#dcfce7', text: '#111111', border: 'rgba(6, 78, 59, 0.12)' },
-  nord: { name: 'Nordic', primary: '#2e3440', accent: '#88c0d0', bg: '#eceff4', surface: '#e5e9f0', text: '#111111', border: 'rgba(46, 52, 64, 0.12)' },
-  rose: { name: 'Rose', primary: '#e11d48', accent: '#fb7185', bg: '#fff1f2', surface: '#ffe4e6', text: '#111111', border: 'rgba(159, 18, 57, 0.12)' }
+  oled: { name: 'OLED', primary: '#ffffff', accent: '#3b82f6', bg: '#000000', surface: '#0a0a0a', text: '#ffffff', border: 'rgba(255,255,255,0.12)' },
+  tokyo: { name: 'Tokyo', primary: '#bb9af7', accent: '#7dcfff', bg: '#1a1b26', surface: '#24283b', text: '#cfc9c2', border: 'rgba(255,255,255,0.1)' },
+  emerald: { name: 'Esmeralda', primary: '#064e3b', accent: '#10b981', bg: '#f0fdf4', surface: '#dcfce7', text: '#064e3b', border: 'rgba(6, 78, 59, 0.12)' },
+  nord: { name: 'Nordic', primary: '#2e3440', accent: '#88c0d0', bg: '#eceff4', surface: '#e5e9f0', text: '#2e3440', border: 'rgba(46, 52, 64, 0.12)' },
+  rose: { name: 'Rose', primary: '#e11d48', accent: '#fb7185', bg: '#fff1f2', surface: '#ffe4e6', text: '#9f1239', border: 'rgba(159, 18, 57, 0.12)' }
 };
 
 export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
   const t = data[lang];
   const [themeKey, setThemeKey] = useState<keyof typeof presets>('minimal');
   const [themePanelOpen, setThemePanelOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<'home' | 'proyectos' | 'analisis' | 'educacion'>('home');
   const theme = presets[themeKey];
 
   useEffect(() => {
@@ -43,15 +44,16 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
   return (
     <div style={customStyle} className="min-h-screen bg-[var(--bg)] text-[var(--text)] font-jakarta font-light selection:bg-[var(--accent)] selection:text-[var(--bg)] overflow-x-hidden transition-colors duration-500 relative">
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl bg-[var(--surface)]/90 backdrop-blur-md border border-[var(--border)] rounded-[28px] z-50 px-6 py-4 shadow-sm flex justify-between items-center transition-all">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveMenu('home')}>
           <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ backgroundColor: 'var(--accent)' }}></div>
           <span className="font-extrabold text-sm tracking-tight">Nicolás Bautista Pardo</span>
         </div>
         
         <div className="hidden md:flex gap-8">
-           <a href="#proyectos" className="text-sm font-semibold opacity-60 hover:opacity-100 transition-colors" style={{ color: 'var(--text)' }}>Proyectos</a>
-           <a href="#analisis" className="text-sm font-semibold opacity-60 hover:opacity-100 transition-colors" style={{ color: 'var(--text)' }}>Arquitectura</a>
-           <a href="#educacion" className="text-sm font-semibold opacity-60 hover:opacity-100 transition-colors" style={{ color: 'var(--text)' }}>Formación</a>
+           <button onClick={() => setActiveMenu('home')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'home' ? 1 : 0.6 }}>Inicio</button>
+           <button onClick={() => setActiveMenu('proyectos')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'proyectos' ? 1 : 0.6 }}>Proyectos</button>
+           <button onClick={() => setActiveMenu('analisis')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'analisis' ? 1 : 0.6 }}>Arquitectura</button>
+           <button onClick={() => setActiveMenu('educacion')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'educacion' ? 1 : 0.6 }}>Formación</button>
         </div>
         
         <div className="flex gap-4 relative">
@@ -93,8 +95,17 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
         </div>
       </nav>
 
-      {/* Hero */}
-      <header className="min-h-screen flex items-center justify-center pt-32 pb-20 px-6 text-center">
+      <main className="pt-32 min-h-screen">
+        <AnimatePresence mode="wait">
+          {activeMenu === 'home' && (
+      <motion.header 
+        key="home"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="flex items-center justify-center pb-20 px-6 text-center"
+      >
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -128,10 +139,19 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
              </motion.div>
           </div>
         </motion.div>
-      </header>
-      
-      {/* Education */}
-      <section id="educacion" className="py-24 px-6 max-w-6xl mx-auto">
+      </motion.header>
+      )}
+
+      {activeMenu === 'educacion' && (
+      <motion.section 
+        key="educacion"
+        id="educacion" 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="py-12 px-6 max-w-6xl mx-auto"
+      >
          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,10 +185,19 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
               </motion.div>
             ))}
          </div>
-      </section>
+      </motion.section>
+      )}
 
-      {/* Projects */}
-      <section id="proyectos" className="py-24 px-6 max-w-6xl mx-auto">
+      {activeMenu === 'proyectos' && (
+      <motion.section 
+        key="proyectos"
+        id="proyectos" 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="py-12 px-6 max-w-6xl mx-auto"
+      >
          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,10 +232,19 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
                </motion.a>
             ))}
          </div>
-      </section>
+      </motion.section>
+      )}
 
-      {/* Infographics / Analytics */}
-      <section id="analisis" className="py-24 px-6 max-w-6xl mx-auto">
+      {activeMenu === 'analisis' && (
+      <motion.section 
+        key="analisis"
+        id="analisis" 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4 }}
+        className="py-12 px-6 max-w-6xl mx-auto"
+      >
          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +272,10 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
                </motion.div>
             ))}
          </div>
-      </section>
+      </motion.section>
+      )}
+        </AnimatePresence>
+      </main>
 
       {/* Footer */}
       <footer className="border-t pt-24 pb-12 px-6" style={{ backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }}>
@@ -246,8 +287,8 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
             <div>
                <h5 className="font-bold mb-6 uppercase tracking-widest text-[10px] opacity-40">Navegación</h5>
                <div className="flex flex-col gap-4 font-bold text-sm">
-                  <a href="#proyectos" className="hover:opacity-70 transition-colors" style={{ color: 'var(--text)' }}>Proyectos</a>
-                  <a href="#analisis" className="hover:opacity-70 transition-colors" style={{ color: 'var(--text)' }}>Arquitectura</a>
+                  <button onClick={() => setActiveMenu('proyectos')} className="hover:opacity-70 transition-colors text-left" style={{ color: 'var(--text)' }}>Proyectos</button>
+                  <button onClick={() => setActiveMenu('analisis')} className="hover:opacity-70 transition-colors text-left" style={{ color: 'var(--text)' }}>Arquitectura</button>
                   <a href={t.contact.instagram} className="hover:opacity-70 transition-colors" style={{ color: 'var(--text)' }}>Instagram</a>
                </div>
             </div>
