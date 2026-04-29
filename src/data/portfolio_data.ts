@@ -16,15 +16,15 @@ export const data = {
         "Estableciendo Enlace de Comms Seguro... [OK]"
       ],
       labels: {
-        projects: "Terminal Proyectos",
-        profile: "Stats Sistema",
+        projects: "Proyectos",
+        profile: "Sistema",
         about: "Archivos Base",
         contact: "Comunicaciones",
         infographics: "Registros & Análisis"
       }
     },
     about: {
-      content: "¡Hola! Soy Nicolás Bautista Pardo.\n\nMi enfoque une la precisión técnica de la emulación de sistemas con la robustez necesaria para el E-commerce moderno, garantizando escalabilidad arquitectónica y cumplimiento normativo (DIAN) mediante la integración estratégica de IA.",
+      content: "¡hola! Soy Nicolás Bautista Pardo.\n\nMi enfoque une la precisión técnica de la emulación de sistemas con la robustez necesaria para el E-commerce moderno, garantizando escalabilidad arquitectónica y cumplimiento normativo (DIAN) mediante la integración estratégica de IA.",
       education: [
         {
           institution: "Alura - Oracle Next Education",
@@ -114,25 +114,16 @@ export const data = {
     ui: {
       sysReq: "SYS.REQ: Interact with environment hotspots to navigate.",
       status: "STATUS: Environment successfully loaded.",
-      boot: [
-        "BIOS Date 04/29/26 19:38:29 Ver 1.00",
-        "CPU: Neural Network Processor 99",
-        "Memory Test: 640K OK",
-        "Detecting IDE Primary Master... [OK]",
-        "Loading OS Kernel................ DONE",
-        "Initializing Interactive Portfolio Env... DONE",
-        "Establishing Secure Comm Link... [OK]"
-      ],
       labels: {
         projects: "Projects Terminal",
-        profile: "System Stats",
+        profile: "Stats",
         about: "Core Archives",
         contact: "Comm Link",
         infographics: "Logs & Analysis"
       }
     },
     about: {
-      content: "Hello! I am Nicolás Bautista Pardo.\n\nMy approach bridges the technical precision of system emulation with the robustness required for modern E-commerce, ensuring architectural scalability and regulatory compliance (like DIAN) through strategic AI integration.",
+      content: "!hello! I am Nicolás Bautista Pardo.\n\nMy approach bridges the technical precision of system emulation with the robustness required for modern E-commerce, ensuring architectural scalability and regulatory compliance (like DIAN) through strategic AI integration.",
       education: [
         {
           institution: "Alura - Oracle Next Education",
