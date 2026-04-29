@@ -51,9 +51,9 @@ export const ModernPortfolio: React.FC<{ lang: Language }> = ({ lang }) => {
         
         <div className="hidden md:flex gap-8">
            <button onClick={() => setActiveMenu('home')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'home' ? 1 : 0.6 }}>Inicio</button>
+           <button onClick={() => setActiveMenu('educacion')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'educacion' ? 1 : 0.6 }}>Formación</button>
            <button onClick={() => setActiveMenu('proyectos')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'proyectos' ? 1 : 0.6 }}>Proyectos</button>
            <button onClick={() => setActiveMenu('analisis')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'analisis' ? 1 : 0.6 }}>Arquitectura</button>
-           <button onClick={() => setActiveMenu('educacion')} className="text-sm font-semibold transition-colors" style={{ color: 'var(--text)', opacity: activeMenu === 'educacion' ? 1 : 0.6 }}>Formación</button>
         </div>
         
         <div className="flex gap-4 relative">
